@@ -7,7 +7,16 @@ import Filters from "./components/Filters/Filters";
 function App() {
 
   let [pageNumber, setPageNumber] = useState(1);
-  let api = `https://rickandmortyapi.com/api/character/?page=${}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+  
+  useEffect(() => {
+
+    (async function (){
+      let data = await fetch(api)
+    })()
+
+  }, [api])
+  
   return (
     <div className="App">
       <h1 className="text-center ubuntu my-4">
